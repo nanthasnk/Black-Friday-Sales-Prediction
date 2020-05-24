@@ -25,7 +25,6 @@ Below are the observations which we have made from the data visualization done a
 * When examining which city the product was purchased to our surprise, even though the city B is majorly responsible for the overall sales income, but when it comes to the above product, it majorly purchased in the city C.
 
 ### Data Preparation
-* Fortunately, the dataset was clean and had less missing values
 * Used LabelEncoder for encoding the categorical columns like Age, Gender and City_Category
 * Used get_dummies form Pandas package for converting categorical variable State_In_Current_Years into dummy/indicator variables.
 * Filled the missing values in the Product_Category_2 and Product_Category_3
