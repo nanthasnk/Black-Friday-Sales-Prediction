@@ -1,41 +1,98 @@
-# Black-Friday-Sales-Prediction
-![alt text](https://searchengineland.com/figz/wp-content/seloads/2014/12/black-friday1-ss-1920.jpg "Black Friday Sales Prediction")
+# Black Friday Sales Prediction
 
-## Table Of Contents
-  - [Project Introduction](#project-introduction)
-  - [Dataset Description](#dataset-description)
-  - [EDA](#eda)
-  - [Data Preprocessing](#data-preparation)
-  - [Modeling Phase](#modeling-phase)
-  - [Evaluation Metric](#evaluation-metric)
-  - [Conclusion](#conclusion)
+![Black Friday Sales Prediction](https://searchengineland.com/figz/wp-content/seloads/2014/12/black-friday1-ss-1920.jpg "Black Friday Sales Prediction")
 
-### Project Introduction
-Black Friday is an informal name for the Friday following Thanksgiving Day in the United States, which is celebrated on the fourth Thursday of November. The day after Thanksgiving has been regarded as the beginning of the United States Christmas shopping season since 1952, although the term "Black Friday" did not become widely used until more recent decades. Many stores offer highly promoted sales on Black Friday and open very early, such as at midnight, or may even start their sales at some time on Thanksgiving. The major challenge for a Retail store or eCommerce business is to choose product price such that they get maximum profit at the end of the sales. Our project deals with determining the product prices based on the historical retail store sales data. After generating the predictions, our model will help the retail store to decide the price of the products to earn more profits.
+## Table of Contents
+- [Project Introduction](#project-introduction)
+- [Dataset Description](#dataset-description)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Data Preparation](#data-preparation)
+- [Modeling Phase](#modeling-phase)
+- [Evaluation Metric](#evaluation-metric)
+- [Technologies Used](#technologies-used)
+- [Conclusion](#conclusion)
 
-### Dataset Description
-The dataset is acquired from an online data analytics hackathon hosted by Analytics Vidhya. The data contained features like age, gender, marital status, categories of products purchased, city demographics, purchase amount etc. The data consists of 12 columns and 537577 records. Our model will be predicting the purchase amount of the products.
+---
 
-###  EDA:
-Below are the observations which we have made from the data visualization done as part of the Data Understanding process.
-* Approximately, 75% of the number of purchases are made by Male users and rest of the 25% is done by female users. This tells us the Male consumers are the major contributors to the number of sales for the retail store.On average the male gender spends more money on purchase contrary to female, and it is possible to also observe this trend by adding the total value of purchase.
-* When we combined Purchase and Marital_Status for analysis, we came to know that Single Men spend the most during the Black Friday. It also tells that Men tend to spend less once they are married. It maybe because of the added responsibilities.
-* For Age feature, we observed the consumers who belong to the age group 25-40 tend to spend the most.
-* There is an interesting column Stay_In_Current_City_Years, after analyzing this column we came to know the people who have spent 1 year in the city tend to spend the most. This is understandable as, people who have spent more than 4 years in the city are generally well settled and are less interested in buying new things as compared to the people new to the city, who tend to buy more.
-* When examining which city the product was purchased to our surprise, even though the city B is majorly responsible for the overall sales income, but when it comes to the above product, it majorly purchased in the city C.
+## Project Introduction
 
-### Data Preparation
-* Used LabelEncoder for encoding the categorical columns like Age, Gender and City_Category
-* Used get_dummies form Pandas package for converting categorical variable State_In_Current_Years into dummy/indicator variables.
-* Filled the missing values in the Product_Category_2 and Product_Category_3
+Black Friday is the informal name for the Friday following Thanksgiving Day in the United States, which falls on the fourth Thursday of November. It has been considered the beginning of the U.S. Christmas shopping season since 1952. Over the years, retailers have capitalized on this day by offering heavy discounts and starting sales as early as midnight.
 
-### Modeling Phase
-- Splitted dataset into into random train and test subset of ratio 80:20
-- Implemented multiple supervised models such as Linear Regressor, Decision Tree Regressor, Random Forest Regressor.
+For a retail store or an e-commerce business, a major challenge is setting product prices that maximize profit during such high-volume sales events. This project aims to predict purchase amounts based on historical sales data, which can help businesses in pricing decisions to increase profits.
 
-### Evaluation Metric
-Root Mean Square Error (RMSE) is a standard way to measure the error of a model in predicting quantitative data. It’s the square root of the average of squared differences between prediction and actual observation.
+---
 
-### Conclusion
-Implanted multiple supervised models such as Linear Regressor,Decision Tree Regressor, Random Forest Regressor and XGBOOST Regressor. Out of these supervised models, based on the RMSE scores XGBRegressor/XGBOOST Regressor was the best performer with a score of 2879.
+## Dataset Description
 
+The dataset used in this project was obtained from an online data analytics hackathon hosted by **Analytics Vidhya**. It contains various features such as:
+
+- Age  
+- Gender  
+- Marital Status  
+- Product Categories  
+- City Demographics  
+- Purchase Amount  
+
+It consists of **12 columns** and **537,577 records**. The target variable is the **purchase amount**, which we aim to predict using different regression models.
+
+---
+
+## Exploratory Data Analysis (EDA)
+
+Key insights derived from the data visualization:
+
+- **Gender:** Approximately 75% of the purchases were made by male users, and only 25% by females. Males also tend to spend more on average.  
+- **Marital Status:** Single men spend the most during Black Friday. Spending tends to decrease after marriage, possibly due to added responsibilities.  
+- **Age Group:** The age group **25–40** is the most active in terms of spending.  
+- **Stay in Current City:** Users who have been in the city for just **1 year** tend to spend more, possibly due to their need to buy new items. Long-term residents (>4 years) show reduced purchase activity.  
+- **City Category:** While **City B** contributes the most to overall sales revenue, certain products are purchased more frequently in **City C**.
+
+---
+
+## Data Preparation
+
+- **Label Encoding** was used for categorical features such as `Age`, `Gender`, and `City_Category`.  
+- **One-hot Encoding (get_dummies)** was applied to the `Stay_In_Current_City_Years` column.  
+- **Missing Values** in `Product_Category_2` and `Product_Category_3` were filled appropriately.
+
+---
+
+## Modeling Phase
+
+- The dataset was split into **training and testing sets** using an 80:20 ratio.  
+- Multiple regression models were implemented:
+  - **Linear Regression**  
+  - **Decision Tree Regressor**  
+  - **Random Forest Regressor**  
+  - **XGBoost Regressor**
+
+---
+
+## Evaluation Metric
+
+The performance of models was evaluated using **Root Mean Square Error (RMSE)**, a standard metric to measure the accuracy of regression models. RMSE calculates the square root of the average squared differences between predicted and actual values.
+
+---
+
+## Technologies Used
+
+- **Python**  
+- **Pandas** – for data manipulation and analysis  
+- **NumPy** – for numerical operations  
+- **Matplotlib** and **Seaborn** – for data visualization  
+- **Scikit-learn** – for preprocessing, modeling, and evaluation  
+- **XGBoost** – for implementing the XGBoost regression model  
+- **Jupyter Notebook** – for interactive development and analysis
+
+---
+
+## Conclusion
+
+Several regression models were tested in this project:
+
+- **Linear Regression**  
+- **Decision Tree Regressor**  
+- **Random Forest Regressor**  
+- **XGBoost Regressor**
+
+Among these, the **XGBoost Regressor** yielded the best results with the lowest RMSE of **2879**, making it the most effective model for predicting purchase amounts in this scenario.
